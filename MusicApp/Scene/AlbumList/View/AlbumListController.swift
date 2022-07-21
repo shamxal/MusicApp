@@ -16,7 +16,7 @@ class AlbumListController: UIViewController {
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .red
+        collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: "\(AlbumCell.self)")
         return collectionView
@@ -32,30 +32,29 @@ class AlbumListController: UIViewController {
     
     fileprivate func setupUI() {
         title = "Top 100 Albums"
-        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         view.backgroundColor = .white
         view.addSubview(collectionView)
         
         var constraints = [NSLayoutConstraint]()
         constraints.append(collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
-        constraints.append(collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
+        constraints.append(collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor))
         constraints.append(collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor))
         constraints.append(collectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor))
-        constraints.append(collectionView.widthAnchor.constraint(equalTo: view.widthAnchor,
-                                                                 multiplier: 0.92))
+        constraints.append(collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.92))
         NSLayoutConstraint.activate(constraints)
     }
 }
 
 extension AlbumListController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("12301893")
         return 10//viewModel.albumItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(AlbumCell.self)", for: indexPath)
-        cell.backgroundColor = .green
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(AlbumCell.self)", for: indexPath) as! AlbumCell
+        
         return cell
     }
     
