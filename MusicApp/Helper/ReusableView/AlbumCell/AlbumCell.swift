@@ -18,7 +18,6 @@ class AlbumCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.isHidden = false
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "dummyCover")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -26,7 +25,6 @@ class AlbumCell: UICollectionViewCell {
     lazy private var artistLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = "Bad bunny"
         label.textColor = .gray
         label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
@@ -37,7 +35,6 @@ class AlbumCell: UICollectionViewCell {
     lazy private var musicTitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = "Un Verano Sin Ti"
         label.textColor = .white
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
@@ -93,5 +90,7 @@ class AlbumCell: UICollectionViewCell {
     
     func configure(data: AlbumCellProtocol) {
         coverImage.loadURL(data.image)
+        artistLabel.text = data.subTitle
+        musicTitleLabel.text = data.title
     }
 }

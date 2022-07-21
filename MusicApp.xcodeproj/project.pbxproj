@@ -17,6 +17,10 @@
 		4713E73E2888FF9E00B45E3B /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4713E73D2888FF9E00B45E3B /* AlbumCell.swift */; };
 		4773E6A428892C7B000E2A99 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E6A328892C7B000E2A99 /* UIImageView+Extension.swift */; };
 		4773E6A628892DA5000E2A99 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E6A528892DA5000E2A99 /* Album.swift */; };
+		4773E6C928897B2F000E2A99 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E6C828897B2F000E2A99 /* NetworkManager.swift */; };
+		4773E6CB28897B5C000E2A99 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E6CA28897B5C000E2A99 /* NetworkHelper.swift */; };
+		4773E6CF28897FF2000E2A99 /* AlbumNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E6CE28897FF2000E2A99 /* AlbumNetworkManager.swift */; };
+		4773E6D128898042000E2A99 /* AlbumNetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E6D028898042000E2A99 /* AlbumNetworkHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		4713E73D2888FF9E00B45E3B /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		4773E6A328892C7B000E2A99 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		4773E6A528892DA5000E2A99 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		4773E6C828897B2F000E2A99 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4773E6CA28897B5C000E2A99 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		4773E6CE28897FF2000E2A99 /* AlbumNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumNetworkManager.swift; sourceTree = "<group>"; };
+		4773E6D028898042000E2A99 /* AlbumNetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumNetworkHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,7 @@
 			children = (
 				4713E719288872F500B45E3B /* AppDelegate.swift */,
 				4713E71B288872F500B45E3B /* SceneDelegate.swift */,
+				4773E6A7288945B5000E2A99 /* NetworkLayer */,
 				4713E7392888FF5300B45E3B /* Helper */,
 				4713E7342888FC6B00B45E3B /* Scene */,
 				4713E725288872F500B45E3B /* Assets.xcassets */,
@@ -143,6 +152,33 @@
 			path = AlbumCell;
 			sourceTree = "<group>";
 		};
+		4773E6A7288945B5000E2A99 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				4773E6CC28897FD5000E2A99 /* Core */,
+				4773E6CD28897FDC000E2A99 /* Album */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		4773E6CC28897FD5000E2A99 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4773E6CA28897B5C000E2A99 /* NetworkHelper.swift */,
+				4773E6C828897B2F000E2A99 /* NetworkManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4773E6CD28897FDC000E2A99 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				4773E6D028898042000E2A99 /* AlbumNetworkHelper.swift */,
+				4773E6CE28897FF2000E2A99 /* AlbumNetworkManager.swift */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,13 +249,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4773E6C928897B2F000E2A99 /* NetworkManager.swift in Sources */,
 				4713E71A288872F500B45E3B /* AppDelegate.swift in Sources */,
+				4773E6CB28897B5C000E2A99 /* NetworkHelper.swift in Sources */,
 				4713E7362888FC7A00B45E3B /* AlbumListController.swift in Sources */,
 				4773E6A428892C7B000E2A99 /* UIImageView+Extension.swift in Sources */,
 				4713E71C288872F500B45E3B /* SceneDelegate.swift in Sources */,
 				4713E724288872F500B45E3B /* MusicApp.xcdatamodeld in Sources */,
+				4773E6CF28897FF2000E2A99 /* AlbumNetworkManager.swift in Sources */,
 				4713E7382888FC9800B45E3B /* AlbumListViewModel.swift in Sources */,
 				4713E73E2888FF9E00B45E3B /* AlbumCell.swift in Sources */,
+				4773E6D128898042000E2A99 /* AlbumNetworkHelper.swift in Sources */,
 				4773E6A628892DA5000E2A99 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,16 @@
 import Foundation
 
 class AlbumListViewModel {
+    var albumItems = [Album]()
+    var successCallback: (()->())?
+    var errorCallback: ((String)->())?
     
-    let albumItems = [Int]()
-    
+    func getTop100Albums() {
+        AlbumNetworkManager.shared.getTop100Albums { [weak self] items in
+            self?.albumItems = items
+            self?.successCallback?()
+        } failure: { [weak self] errorMessage in
+            self?.errorCallback?(errorMessage)
+        }
+    }
 }

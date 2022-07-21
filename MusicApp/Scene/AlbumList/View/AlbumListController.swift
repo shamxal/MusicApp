@@ -28,6 +28,7 @@ class AlbumListController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        viewModelSetup()
     }
     
     fileprivate func setupUI() {
@@ -45,16 +46,29 @@ class AlbumListController: UIViewController {
         constraints.append(collectionView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.92))
         NSLayoutConstraint.activate(constraints)
     }
+    
+    fileprivate func viewModelSetup() {
+        viewModel.getTop100Albums()
+        viewModel.errorCallback = { message in
+            //TODO: Show error alert
+            print("error: \(message)")
+        }
+        viewModel.successCallback = { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
+    }
 }
 
 extension AlbumListController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10//viewModel.albumItems.count
+        viewModel.albumItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(AlbumCell.self)", for: indexPath) as! AlbumCell
-        
+        cell.configure(data: viewModel.albumItems[indexPath.item])
         return cell
     }
     
