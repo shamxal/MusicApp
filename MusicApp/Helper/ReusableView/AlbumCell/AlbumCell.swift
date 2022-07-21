@@ -59,13 +59,16 @@ class AlbumCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
+    override func layoutSubviews() {
+        layer.cornerRadius = 16
+        layer.masksToBounds = true
+    }
+    
     func setupUI() {
         addSubview(coverImage)
         addSubview(coverView)
         addSubview(artistLabel)
         addSubview(musicTitleLabel)
-        
-        layer.cornerRadius = 20
         
         var constraints = [NSLayoutConstraint]()
         constraints.append(coverImage.topAnchor.constraint(equalTo: topAnchor))

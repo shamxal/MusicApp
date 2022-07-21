@@ -9,10 +9,15 @@ import UIKit
 
 extension UIImageView {
     func loadURL(_ url: String) {
-        DispatchQueue.main.async {
-            if let url = URL(string: url), let data = try? Data(contentsOf: url) {
-                self.image = UIImage(data: data)
+        if let url = URL(string: url) {
+            let dataTask = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
             }
+            dataTask.resume()
         }
     }
 }
