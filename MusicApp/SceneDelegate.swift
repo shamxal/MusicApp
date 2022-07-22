@@ -24,6 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     fileprivate func setupNavigation(scene: UIWindowScene) {
         let controller = AlbumListController()
         let navigationController = UINavigationController(rootViewController: controller)
+        controller.viewModel.coordinator = AppCoordinator(navigationController: navigationController)
+        
         window = UIWindow(windowScene: scene)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

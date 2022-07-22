@@ -99,9 +99,7 @@ extension AlbumListController: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let album = viewModel.albumItems[indexPath.item]
-        let controller = AlbumDetailController(viewModel: AlbumDetailViewModel(album: album))
-        navigationController?.show(controller, sender: nil)
+        viewModel.showAlbumDetail(index: indexPath.item)        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

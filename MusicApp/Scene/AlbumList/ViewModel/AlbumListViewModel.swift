@@ -8,11 +8,19 @@
 import Foundation
 
 class AlbumListViewModel {
-    var albumItems = [Albums]()
+    var coordinator: AppCoordinator?
+    
     var successCallback: (()->())?
     var errorCallback: ((String)->())?
     
+    var albumItems = [Albums]()
     let shared = CoreDataHelper.shared
+    
+    init() {}
+    
+    init(coordinator: AppCoordinator) {
+        self.coordinator = coordinator
+    }
     
     func fetchLocalItems() {
         shared.fetch { [weak self] items in
@@ -35,5 +43,9 @@ class AlbumListViewModel {
         } failure: { [weak self] errorMessage in
             self?.errorCallback?(errorMessage)
         }
+    }
+    
+    func showAlbumDetail(index: Int) {
+        coordinator?.showAlbumDetail(album: albumItems[index])
     }
 }
