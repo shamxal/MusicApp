@@ -12,7 +12,8 @@ class TitleCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .blue
-        label.numberOfLines = 1
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -41,8 +42,7 @@ class TitleCell: UICollectionViewCell {
         var constraints = [NSLayoutConstraint]()
         constraints.append(titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor))
         constraints.append(titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor))
-        constraints.append(titleLabel.widthAnchor.constraint(equalTo: widthAnchor,
-                                                             multiplier: 0.92))
+        constraints.append(titleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7))
         NSLayoutConstraint.activate(constraints)
     }
     

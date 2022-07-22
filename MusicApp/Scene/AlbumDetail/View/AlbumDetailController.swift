@@ -39,6 +39,7 @@ class AlbumDetailController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         let collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
@@ -56,7 +57,6 @@ class AlbumDetailController: UIViewController {
         label.textColor = .gray
         label.numberOfLines = 2
         label.textAlignment = .center
-        label.text = "Released May 20, 2022\nCopyright 2022 Apple Inc. All rights reserved."
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -144,11 +144,16 @@ class AlbumDetailController: UIViewController {
         artistLabel.text = viewModel.album?.artistName
         musicTitleLabel.text = viewModel.album?.name
         coverImage.loadURL(viewModel.album?.image ?? "")
+        if let releaseData = viewModel.album?.releaseDate {
+            infoLabel.text = "Released \(releaseData)\nCopyright 2022 Apple Inc. All rights reserved."
+        } else {
+            infoLabel.text = "Copyright 2022 Apple Inc. All rights reserved."
+        }
     }
     
     @objc fileprivate func visitButtonTapped() {
-        //TODO: open album url
-        print("hello")
+        guard let url = URL(string: viewModel.album?.url ?? "") else { return }
+        UIApplication.shared.open(url)
     }
 }
 
@@ -164,8 +169,6 @@ extension AlbumDetailController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let count = viewModel.album?.genres?[indexPath.item].name?.count ?? 0
-        let width = count*3 + 24
-        return CGSize(width: width, height: 28)
+        CGSize(width: 300, height: 28)
     }
 }

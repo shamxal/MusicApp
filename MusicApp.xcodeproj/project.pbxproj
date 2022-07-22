@@ -114,6 +114,8 @@
 				4713E719288872F500B45E3B /* AppDelegate.swift */,
 				4713E71B288872F500B45E3B /* SceneDelegate.swift */,
 				4773E6A7288945B5000E2A99 /* NetworkLayer */,
+				476445DD288A82400077B064 /* CoreData */,
+				4713E7302888FC2800B45E3B /* Model */,
 				4713E7392888FF5300B45E3B /* Helper */,
 				4713E7342888FC6B00B45E3B /* Scene */,
 				4713E725288872F500B45E3B /* Assets.xcassets */,
@@ -151,7 +153,6 @@
 		4713E7332888FC6500B45E3B /* AlbumList */ = {
 			isa = PBXGroup;
 			children = (
-				4713E7302888FC2800B45E3B /* Model */,
 				4713E7312888FC3900B45E3B /* View */,
 				4713E7322888FC3E00B45E3B /* ViewModel */,
 			);
@@ -191,6 +192,13 @@
 				4713E73D2888FF9E00B45E3B /* AlbumCell.swift */,
 			);
 			path = AlbumCell;
+			sourceTree = "<group>";
+		};
+		476445DD288A82400077B064 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		4773E6A7288945B5000E2A99 /* NetworkLayer */ = {
