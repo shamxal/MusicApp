@@ -8,11 +8,11 @@
 import Foundation
 
 class AlbumDetailViewModel {    
-    var album: Album?
+    var album: Albums?
     
     init() {}
     
-    init(album: Album) {
+    init(album: Albums) {
         self.album = album
     }
 }

@@ -66,7 +66,7 @@ class AlbumListController: UIViewController {
     }
     
     fileprivate func viewModelSetup() {
-        viewModel.getTop100Albums()
+        viewModel.fetchLocalItems()
         viewModel.errorCallback = { message in
             //TODO: Show error alert
             print("error: \(message)")
@@ -82,7 +82,7 @@ class AlbumListController: UIViewController {
     
     @objc fileprivate func refresh() {
         refreshControl.beginRefreshing()
-        viewModel.getTop100Albums()
+        viewModel.fetchLocalItems()
     }
 }
 

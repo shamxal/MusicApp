@@ -164,7 +164,7 @@ extension AlbumDetailController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TitleCell.self)", for: indexPath) as! TitleCell
-        cell.configure(title: viewModel.album?.genres?[indexPath.item].name ?? "")
+        cell.configure(title: viewModel.album?.genres?[indexPath.item] ?? "")
         return cell
     }
     
