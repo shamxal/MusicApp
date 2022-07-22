@@ -19,16 +19,19 @@ class AlbumListViewModel {
             if !items.isEmpty {
                 self?.albumItems = items
                 self?.successCallback?()
-            } else {
                 getTop100Albums()
+            } else {
+                getTop100Albums(shouldFetch: true)
             }
         }
     }
     
-    func getTop100Albums() {
+    func getTop100Albums(shouldFetch: Bool = false) {
         AlbumNetworkManager.shared.getTop100Albums { [weak self] items in
             self?.shared.add(albumItems: items)
-            self?.fetchLocalItems()
+            if shouldFetch {
+                self?.fetchLocalItems()
+            }
         } failure: { [weak self] errorMessage in
             self?.errorCallback?(errorMessage)
         }
