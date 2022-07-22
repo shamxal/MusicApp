@@ -12,10 +12,10 @@ enum HttpMethod: String {
     case post = "POST"
 }
 
-enum ErrorTypes: Error {
-    case invalidData
-    case invalidURL
-    case generalError
+enum ErrorTypes: String, Error {
+    case invalidData = "Invalid data"
+    case invalidURL = "Invalid url"
+    case generalError = "An error happened"
 }
 
 class NetworkHelper {

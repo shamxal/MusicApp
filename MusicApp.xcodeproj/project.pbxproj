@@ -21,6 +21,7 @@
 		476445E4288A82B80077B064 /* Albums+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476445E2288A82B80077B064 /* Albums+CoreDataClass.swift */; };
 		476445E5288A82B80077B064 /* Albums+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476445E3288A82B80077B064 /* Albums+CoreDataProperties.swift */; };
 		476445E8288A82DA0077B064 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476445E7288A82DA0077B064 /* CoreDataHelper.swift */; };
+		476445EC288A90020077B064 /* AlertViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476445EB288A90020077B064 /* AlertViewHelper.swift */; };
 		4773E6A428892C7B000E2A99 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E6A328892C7B000E2A99 /* UIImageView+Extension.swift */; };
 		4773E6A628892DA5000E2A99 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E6A528892DA5000E2A99 /* Album.swift */; };
 		4773E6C928897B2F000E2A99 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4773E6C828897B2F000E2A99 /* NetworkManager.swift */; };
@@ -46,6 +47,7 @@
 		476445E2288A82B80077B064 /* Albums+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Albums+CoreDataClass.swift"; sourceTree = "<group>"; };
 		476445E3288A82B80077B064 /* Albums+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Albums+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		476445E7288A82DA0077B064 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		476445EB288A90020077B064 /* AlertViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewHelper.swift; sourceTree = "<group>"; };
 		4773E6A328892C7B000E2A99 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		4773E6A528892DA5000E2A99 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		4773E6C828897B2F000E2A99 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		4713E7392888FF5300B45E3B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				476445EB288A90020077B064 /* AlertViewHelper.swift */,
 				4773E6A328892C7B000E2A99 /* UIImageView+Extension.swift */,
 				4713E73A2888FF5B00B45E3B /* ReusableView */,
 			);
@@ -330,6 +333,7 @@
 				4713E73E2888FF9E00B45E3B /* AlbumCell.swift in Sources */,
 				4773E6D128898042000E2A99 /* AlbumNetworkHelper.swift in Sources */,
 				470548EC2889F1A7003E9FD9 /* TitleCell.swift in Sources */,
+				476445EC288A90020077B064 /* AlertViewHelper.swift in Sources */,
 				476445E4288A82B80077B064 /* Albums+CoreDataClass.swift in Sources */,
 				4773E6A628892DA5000E2A99 /* Album.swift in Sources */,
 				470548E72889E72E003E9FD9 /* AlbumDetailController.swift in Sources */,

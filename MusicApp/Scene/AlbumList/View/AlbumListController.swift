@@ -67,9 +67,10 @@ class AlbumListController: UIViewController {
     
     fileprivate func viewModelSetup() {
         viewModel.fetchLocalItems()
-        viewModel.errorCallback = { message in
-            //TODO: Show error alert
-            print("error: \(message)")
+        viewModel.errorCallback = { [weak self] message in
+            DispatchQueue.main.async {
+                self?.present(AlertViewHelper.showAlert(message: message), animated: true)
+            }
         }
         viewModel.successCallback = { [weak self] in
             DispatchQueue.main.async {

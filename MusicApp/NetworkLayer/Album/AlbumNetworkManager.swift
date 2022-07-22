@@ -20,7 +20,7 @@ class AlbumNetworkManager: AlbumNetworkProtocol {
                                           method: .get) { response in
             switch response {
             case .failure(let error):
-                failure(error.localizedDescription)
+                failure(error.rawValue)
             case .success(let data):
                 if let albums = data.feed?.results {
                     compelete(albums)
