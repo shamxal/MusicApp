@@ -26,7 +26,6 @@ class AlbumListViewModel {
         shared.fetch { [weak self] items in
             if !items.isEmpty {
                 self?.albumItems = items
-                self?.successCallback?()
                 getTop100Albums()
             } else {
                 getTop100Albums(shouldFetch: true)
@@ -39,6 +38,8 @@ class AlbumListViewModel {
             self?.shared.add(albumItems: items)
             if shouldFetch {
                 self?.fetchLocalItems()
+            } else {
+                self?.successCallback?()
             }
         } failure: { [weak self] errorMessage in
             self?.errorCallback?(errorMessage)

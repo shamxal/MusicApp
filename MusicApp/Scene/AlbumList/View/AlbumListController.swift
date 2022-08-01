@@ -48,7 +48,7 @@ class AlbumListController: UIViewController {
         view.addSubview(indicator)
         view.addSubview(collectionView)
                 
-        refreshControl.addTarget(self, action: #selector(refresh), for: .touchUpInside)
+        refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
         collectionView.refreshControl = refreshControl
         
         var constraints = [NSLayoutConstraint]()
@@ -81,7 +81,7 @@ class AlbumListController: UIViewController {
         }
     }
     
-    @objc fileprivate func refresh() {
+    @objc fileprivate func refreshAction() {
         refreshControl.beginRefreshing()
         viewModel.fetchLocalItems()
     }
